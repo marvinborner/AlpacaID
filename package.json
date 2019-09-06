@@ -1,0 +1,14 @@
+{
+  "name": "alpacaid",
+  "version": "1.0.0",
+  "description": "QR like code using an alpaca!",
+  "main": "index.js",
+  "scripts": {
+    "test": "true"
+  },
+  "author": "Marvin Borner",
+  "license": "BSD",
+  "dependencies": {
+    "opencv": "^6.2.0"
+  }
+}
