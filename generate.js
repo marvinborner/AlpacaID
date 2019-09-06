@@ -35,7 +35,7 @@ emails.forEach(email => {
         let result = "";
         const characters = "abcdefghijklmnopqrstuvwxyz";
         const charactersLength = characters.length;
-        for (let i = 0; i < length; i++ ) result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        for (let i = 0; i < length; i++) result += characters.charAt(Math.floor(Math.random() * charactersLength));
         return result;
     }
 
@@ -64,52 +64,151 @@ emails.forEach(email => {
         const first = value.substr(0, 4).split("");
         const second = value.substr(4).split("");
         switch (index) {
-            case 0: draw(2, 4, first); draw(2, 6, second); break;
-            case 1: draw(2, 8, first); draw(2, 10, second); break;
-            case 2: draw(2, 12, first); draw(2, 14, second); break;
-            case 3: draw(2, 16, first); draw(2, 18, second); break;
+            case 0:
+                draw(2, 4, first);
+                draw(2, 6, second);
+                break;
+            case 1:
+                draw(2, 8, first);
+                draw(2, 10, second);
+                break;
+            case 2:
+                draw(2, 12, first);
+                draw(2, 14, second);
+                break;
+            case 3:
+                draw(2, 16, first);
+                draw(2, 18, second);
+                break;
 
-            case 4: draw(4, 2, first); draw(4, 4, second); break;
-            case 5: draw(4, 6, first); draw(4, 8, second); break;
-            case 6: draw(4, 10, first); draw(20, 10, second); break;
-            case 7: draw(4, 18, first); draw(4, 20, second); break;
+            case 4:
+                draw(4, 2, first);
+                draw(4, 4, second);
+                break;
+            case 5:
+                draw(4, 6, first);
+                draw(4, 8, second);
+                break;
+            case 6:
+                draw(4, 10, first);
+                draw(20, 10, second);
+                break;
+            case 7:
+                draw(4, 18, first);
+                draw(4, 20, second);
+                break;
 
-            case 8: draw(6, 2, first); draw(6, 4, second); break;
-            case 9: draw(6, 6, first); draw(6, 8, second); break;
-            case 10: draw(6, 20, first); draw(6, 22, second); break;
+            case 8:
+                draw(6, 2, first);
+                draw(6, 4, second);
+                break;
+            case 9:
+                draw(6, 6, first);
+                draw(6, 8, second);
+                break;
+            case 10:
+                draw(6, 20, first);
+                draw(6, 22, second);
+                break;
 
-            case 11: draw(8, 4, first); draw(8, 6, second); break;
-            case 12: draw(8, 8, first); draw(8, 22, second); break;
+            case 11:
+                draw(8, 4, first);
+                draw(8, 6, second);
+                break;
+            case 12:
+                draw(8, 8, first);
+                draw(8, 22, second);
+                break;
 
-            case 13: draw(10, 6, first); draw(10, 8, second); break;
+            case 13:
+                draw(10, 6, first);
+                draw(10, 8, second);
+                break;
 
-            case 14: draw(12, 6, first); draw(12, 8, second); break;
+            case 14:
+                draw(12, 6, first);
+                draw(12, 8, second);
+                break;
 
-            case 15: draw(14, 6, first); draw(14, 8, second); break;
+            case 15:
+                draw(14, 6, first);
+                draw(14, 8, second);
+                break;
 
-            case 16: draw(16, 4, first); draw(16, 6, second); break;
-            case 17: draw(16, 8, first); draw(16, 22, second); break;
+            case 16:
+                draw(16, 4, first);
+                draw(16, 6, second);
+                break;
+            case 17:
+                draw(16, 8, first);
+                draw(16, 22, second);
+                break;
 
-            case 18: draw(18, 2, first); draw(18, 4, second); break;
-            case 19: draw(18, 6, first); draw(18, 8, second); break;
-            case 20: draw(18, 20, first); draw(18, 22, second); break;
+            case 18:
+                draw(18, 2, first);
+                draw(18, 4, second);
+                break;
+            case 19:
+                draw(18, 6, first);
+                draw(18, 8, second);
+                break;
+            case 20:
+                draw(18, 20, first);
+                draw(18, 22, second);
+                break;
 
-            case 21: draw(20, 2, first); draw(20, 4, second); break;
-            case 22: draw(20, 6, first); draw(20, 8, second); break;
-            case 23: draw(20, 18, first); draw(20, 20, second); break;
+            case 21:
+                draw(20, 2, first);
+                draw(20, 4, second);
+                break;
+            case 22:
+                draw(20, 6, first);
+                draw(20, 8, second);
+                break;
+            case 23:
+                draw(20, 18, first);
+                draw(20, 20, second);
+                break;
 
-            case 24: draw(22, 4, first); draw(22, 6, second); break;
-            case 25: draw(22, 8, first); draw(22, 10, second); break;
-            case 26: draw(22, 12, first); draw(22, 14, second); break;
-            case 27: draw(22, 16, first); draw(22, 18, second); break;
+            case 24:
+                draw(22, 4, first);
+                draw(22, 6, second);
+                break;
+            case 25:
+                draw(22, 8, first);
+                draw(22, 10, second);
+                break;
+            case 26:
+                draw(22, 12, first);
+                draw(22, 14, second);
+                break;
+            case 27:
+                draw(22, 16, first);
+                draw(22, 18, second);
+                break;
 
-            case 28: draw(6, 14, first); draw(18, 14, second); break;
+            case 28:
+                draw(6, 14, first);
+                draw(18, 14, second);
+                break;
 
-            case 29: draw(10, 16, first); draw(10, 18, second); break;
-            case 30: draw(14, 16, first); draw(14, 18, second); break;
-            case 31: draw(12, 18, first); draw(12, 22, second); break;
+            case 29:
+                draw(10, 16, first);
+                draw(10, 18, second);
+                break;
+            case 30:
+                draw(14, 16, first);
+                draw(14, 18, second);
+                break;
+            case 31:
+                draw(12, 18, first);
+                draw(12, 22, second);
+                break;
 
-            case 32: draw(10, 22, first); draw(14, 22, second); break;
+            case 32:
+                draw(10, 22, first);
+                draw(14, 22, second);
+                break;
         }
-    })
+    });
 });
