@@ -9,6 +9,6 @@
   "author": "Marvin Borner",
   "license": "BSD",
   "dependencies": {
-    "opencv": "^6.2.0"
+    "opencv4nodejs": "^5.2.0"
   }
 }
