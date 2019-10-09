@@ -71,6 +71,12 @@ def align_images(im1, im2):
     return im1_reg, h
 
 
+def color_difference(color1, color2):
+    percentage1 = (color1[0] / 255 * 100 + color1[1] / 255 * 100 + color1[2] / 255 * 100) / 3
+    percentage2 = (color2[0] / 255 * 100 + color2[1] / 255 * 100 + color2[2] / 255 * 100) / 3
+    return percentage1 - percentage2 if percentage1 - percentage2 > 0 else 100
+
+
 if __name__ == '__main__':
     image = cv2.imread("example.jpg")
     ratio = image.shape[0] / 500.0
@@ -96,13 +102,20 @@ if __name__ == '__main__':
     warped = four_point_transform(orig, screenCnt.reshape(4, 2) * ratio)
     cv2.imwrite("before.jpg", warped)
 
-    # cv2.imshow("Original", imutils.resize(orig, height=650))
-    # cv2.imshow("Scanned", imutils.resize(warped, height=650))
-    # cv2.waitKey(0)
-
     ref_filename = "mask.jpg"
     im_reference = cv2.imread(ref_filename, cv2.IMREAD_COLOR)
     warped, h = align_images(warped, im_reference)
     print("Estimated homography : \n", h)
     out_filename = "aligned.jpg"
     cv2.imwrite(out_filename, warped)
+
+    # cv2.imshow("Warped", warped)
+    # cv2.waitKey(0)
+    color = warped[392, 54]
+    blue = [0x2A, 0xAB, 0xE1]
+    black = [0, 0, 0]
+    detected = [color[2], color[1], color[0]]
+    if color_difference(blue, detected) < 30:
+        print("Color is blue!")
+    elif color_difference(black, detected) < 30:
+        print("Color is black!")
