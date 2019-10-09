@@ -71,10 +71,15 @@ def align_images(im1, im2):
     return im1_reg, h
 
 
-def color_difference(color1, color2):
-    percentage1 = (color1[0] / 255 * 100 + color1[1] / 255 * 100 + color1[2] / 255 * 100) / 3
-    percentage2 = (color2[0] / 255 * 100 + color2[1] / 255 * 100 + color2[2] / 255 * 100) / 3
-    return percentage1 - percentage2 if percentage1 - percentage2 > 0 else 100
+def color_difference(rgb1, rgb2):
+    # TODO: Fix CIE L*a*b difference calculation
+    rgb1 = np.array([rgb1], dtype=np.uint8)
+    rgb2 = np.array([rgb1], dtype=np.uint8)
+    lab1 = cv2.cvtColor(rgb1, cv2.COLOR_RGB2Lab)
+    lab2 = cv2.cvtColor(rgb1, cv2.COLOR_RGB2Lab)
+    print(lab1)
+    print(lab2)
+    return 100
 
 
 if __name__ == '__main__':
@@ -111,11 +116,30 @@ if __name__ == '__main__':
 
     # cv2.imshow("Warped", warped)
     # cv2.waitKey(0)
-    color = warped[392, 54]
-    blue = [0x2A, 0xAB, 0xE1]
-    black = [0, 0, 0]
-    detected = [color[2], color[1], color[0]]
-    if color_difference(blue, detected) < 30:
-        print("Color is blue!")
-    elif color_difference(black, detected) < 30:
-        print("Color is black!")
+    print(color_difference(np.array([1, 1, 0]), (np.array([0, 0, 0]))))
+    white = np.array([99, 99, 99])
+    blue = np.array([0x2A, 0xAB, 0xE1])
+    black = np.array([0, 0, 0])
+    height, width, channels = warped.shape
+    print(round(height / 2))
+    color_difference(blue, white)
+    for x in range(width):
+        pixel_color = warped[round(height / 2), x]
+        detected = [pixel_color[2], pixel_color[1], pixel_color[0]]
+        white_diff = color_difference(white, detected)
+        blue_diff = color_difference(blue, detected)
+        black_diff = color_difference(black, detected)
+        print("\n")
+        print(x)
+        print(detected)
+        print(white_diff)
+        print(blue_diff)
+        print(black_diff)
+        if white_diff < blue_diff and white_diff < black_diff:
+            print("white")
+        elif blue_diff < white_diff and blue_diff < black_diff:
+            print("blue")
+            print(x)
+        elif black_diff < blue_diff and black_diff < white_diff:
+            print("black")
+            print(x)
