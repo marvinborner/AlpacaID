@@ -50,7 +50,6 @@ emails.forEach(email => {
 
     // DRAW!
     const draw = (x, y, nibble) => {
-        console.log(nibble);
         nibble.forEach((bit, index) => {
             ctx.fillStyle = bit === "1" ? "#000000" : "#2aabe1";
             const x_pos = [1, 3].includes(index) ? x + 1 : x;
@@ -60,7 +59,6 @@ emails.forEach(email => {
     };
 
     arr.forEach((value, index) => {
-        console.log(value);
         const first = value.substr(0, 4).split("");
         const second = value.substr(4).split("");
         switch (index) {
